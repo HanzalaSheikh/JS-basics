@@ -187,7 +187,15 @@ const string = prompt('Enter a string or number to check for Palindrome: ');
 const value = checkPalindrome(string);  
 
 // log it's value in the console
-console.log(value);  
+console.log(value);
+
+// Function is called, the return value will end up in x
+let x = myFunction(4, 3);
+
+function myFunction(a, b) {
+// Function returns the product of a and b
+  return a * b;
+}
 
 
 
