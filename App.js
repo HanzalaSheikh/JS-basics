@@ -197,6 +197,38 @@ function myFunction(a, b) {
   return a * b;
 }
 
+// how to use the call, bind, and apply methods:
+const person = {
+  fullName: function(city, country) {
+    return `${this.firstName} ${this.lastName}, ${city}, ${country}`;
+  }
+};
+
+const person1 = {
+  firstName: 'John',
+  lastName: 'Doe'
+};
+
+const person2 = {
+  firstName: 'Jane',
+  lastName: 'Smith'
+};
+
+// Using the "call" method
+console.log(person.fullName.call(person1, 'New York', 'USA')); // Output: John Doe, New York, USA
+
+// Using the "bind" method
+const fullNameFunc = person.fullName.bind(person2);
+console.log(fullNameFunc('London', 'UK')); // Output: Jane Smith, London, UK
+
+// Using the "apply" method
+console.log(person.fullName.apply(person2, ['Paris', 'France'])); // Output: Jane Smith, Paris, France
+
+// In the example above, we define an object person with a method fullName that returns the full name along with the city and country. We then create two separate objects person1 and person2 with different firstName and lastName properties.
+// Using the call method, we can invoke the fullName function on person1 object and specify the additional arguments city and country.
+// Using the bind method, we create a new function fullNameFunc that is bound to the person2 object. Later, we invoke fullNameFunc passing the additional arguments city and country.
+// Using the apply method, we invoke the fullName function on the person2 object and pass the arguments as an array.
+// The outputs demonstrate how each method can be used to call a function with a specific context and arguments.
 
 
 
